@@ -1,0 +1,26 @@
+@use "skin" as *;
+
+.indicators {
+  
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  display: flex;
+  justify-content: center;
+  padding: 1em;
+  bottom: 0;
+  gap: 0.5em;
+}
+
+.indicator {
+  background-color: rgba($color-light, 0.2);
+  min-width: 100px;
+  padding: 0.3em;
+  border-radius: 0.5em;
+  cursor: pointer;
+  
+}
+
+.indicator.active {
+  background-color: $color-light;
+}

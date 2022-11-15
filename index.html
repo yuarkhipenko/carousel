@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="zxx">
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+
+
+  <div class="carousel" id="carousel">
+
+    <div class="slides" id="slides-container">
+      <div class="slide active" style="background-image: url(assets/image/banksy1.jpg);"></div>
+      <div class="slide" style="background-image: url(assets/image/banksy2.jpg);"></div>
+      <div class="slide" style="background-image: url(assets/image/banksy3.jpg);"></div>
+      <div class="slide" style="background-image: url(assets/image/banksy4.jpg);"></div>
+      <div class="slide" style="background-image: url(assets/image/banksy5.jpg);"></div>
+    </div>
+
+  </div>
+
+  <div class="controls" id="controls-container">
+    <div class="control control-pause" id="btn-pause"><i class="fas fa-pause-circle"></i>
+    </div>
+    <div class="control control-prev" id="btn-prev"><i class="fas fa-angle-left"></i>
+    </div>
+    <div class="control control-next" id="btn-next"><i class="fas fa-angle-right"></i></div>
+  </div>
+
+  <div class="indicators" id="indicators-container">
+    <div class="indicator active" data-slide-to="0"></div>
+    <div class="indicator" data-slide-to="1"></div>
+    <div class="indicator" data-slide-to="2"></div>
+    <div class="indicator" data-slide-to="3"></div>
+    <div class="indicator" data-slide-to="4"></div>
+  </div>
+
+
+  <script src="assets/js/index.js"></script>
+</body>
+
+</html>
