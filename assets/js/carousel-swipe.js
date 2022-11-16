@@ -1,13 +1,20 @@
+import Carousel from "./carousel.js";
+class SwipeCorousel extends Carousel {
+constructor(...args) {
+  super(...args);
+  this.slidesContainer = this.slideItems[0].parentElement;
+}
 
+_initListener() {
+  super._initListener();
+  this.container.addEventListener('touchstart', this._swipeStart.bind(this));
+  this.slidesContainer.addEventListener('mousedoun', this._swipeStart.bind(this));
+  this.container.addEventListener('touchend', this._swipeEnd.bind(this));
+  this.slidesContainer.addEventListener('mouseup', this._swipeEnd.bind(this));
+  };
+  
 
-function SwipeCorousel() {
-  Carousel.apply(this, arguments);
-};
-
-SwipeCorousel.prototype = Object.create(Carousel.prototype);
-SwipeCorousel.prototype.constructor = SwipeCorousel;
-
-SwipeCorousel.prototype._swipeStart = function(e) {
+_swipeStart(e) {
 
   if (e instanceof MouseEvent) {
     this.startPosX = e.pageX
@@ -20,7 +27,7 @@ SwipeCorousel.prototype._swipeStart = function(e) {
 
 };
 
-SwipeCorousel.prototype._swipeEnd = function(e) {
+_swipeEnd(e) {
 
   if (e instanceof MouseEvent) {
     this.endPosX = e.pageX;
@@ -29,16 +36,11 @@ SwipeCorousel.prototype._swipeEnd = function(e) {
     this.endPosX = e.changedTouches[0].pageX;
   }
 
-  if (this.endPosX > -100) this.prev();
-  if (this.endPosX < 100) this.next();
+  if (this.endPosX - this.startPosX > -100) this.prev();
+  if (this.endPosX - this.startPosX < 100) this.next();
 };
 
 
-
-SwipeCorousel.prototype._initListener = function() {
-Carousel.prototype._initListener.apply(this);
-this.container.addEventListener('touchstart', this._swipeStart.bind(this));
-this.container.addEventListener('mousedoun', this._swipeStart.bind(this));
-this.container.addEventListener('touchend', this._swipeEnd.bind(this));
-this.container.addEventListener('mouseup', this._swipeEnd.bind(this));
-};
+}
+ 
+export default SwipeCorousel;
