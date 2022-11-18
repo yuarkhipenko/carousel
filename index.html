@@ -1,30 +1,103 @@
-<!doctype html>
-<html lang="zxx">
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zxx">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;300;400;700&family=Roboto:wght@100;300;400;500;700;900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="libs/@fortawesome/fontawesome-free/css/all.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body>
+  <header class="header">
+    <div class="header-container">
+      <div class="header-logo">
+        <a class="header-logo__link" href="#">
+          <img src="assets/image/BMW-Motorrad-Logo.png" alt="bmw">
+        </a>
+      </div>
 
-  <div class="carousel" id="carousel">
-
-    <div class="slides" id="slides-container">
-      <div class="slide item active" style="background-image: url(assets/image/banksy1.jpg);"></div>
-      <div class="slide item" style="background-image: url(assets/image/banksy2.jpg);"></div>
-      <div class="slide item" style="background-image: url(assets/image/banksy3.jpg);"></div>
-      <div class="slide item" style="background-image: url(assets/image/banksy4.jpg);"></div>
-      <div class="slide item" style="background-image: url(assets/image/banksy5.jpg);"></div>
+      <nav class="header-navbar">
+        <div class="header-navbar__btn header-navbar__btn">
+          <span class="header-navbar__btn-row"></span>
+          <span class="header-navbar__btn-row"></span>
+          <span class="header-navbar__btn-row"></span>
+          <span class="header-navbar__btn-row"></span>
+        </div>
+        <ul class="header-navbar__list">
+          <li class="header-navbar__item">
+            <a class="header-navbar__link" href="#">Service</a>
+          </li>
+          <li class="header-navbar__item">
+            <a class="header-navbar__link" href="#"> Experience</a>
+          </li>
+          <li class="header-navbar__item">
+            <a class="header-navbar__link" href="#"> Engineering</a>
+          </li>
+        </ul>
+      </nav>
     </div>
+  </header>
 
+  <div class="main">
+    <div class="carousel" id="carousel">
+      <div class="slides" id="slides-container">
+        <div class="slide item active" style="background-image: url(assets/image/bmw1.jpg)">
+          <div class="slide-content">
+            <h2>THE NEW R 1250 RS</h2>
+            <p>FOR DYNAMIC SPORTS TOURING WITH UNMISTAKABLE BOXER PUNCH</p>
+          </div>
+        </div>
+
+        <div class="slide item" style="background-image: url(assets/image/bmw2.jpg)">
+          <div class="slide-content">
+            <h2>THE 2022 BMW R 18</h2>
+            <p>
+              $229/MONTH EASYRIDE FINANCING PLUS BMW MAKES YOUR PAYMENTS FOR
+              4 MONTHS
+            </p>
+          </div>
+        </div>
+
+        <div class="slide item" style="background-image: url(assets/image/bmw3.jpg)">
+          <div class="slide-content">
+            <h2>LEAN INTO THE HOLIDAYS</h2>
+            <p>
+              SAVE 25% ON GEAR & APPAREL THROUGH NOVEMBER 24TH WHEN YOU SHOP
+              ONLINE AT SHOPBMWMOTORCYCLES.COM
+            </p>
+          </div>
+        </div>
+
+        <div class="slide item" style="background-image: url(assets/image/bmw4.jpg)">
+          <div class="slide-content">
+            <h2>THE 2022 BMW R 18 TRANSCONTINENTAL</h2>
+            <p>
+              $269/MONTH EASYRIDE FINANCING PLUS BMW MAKES YOUR PAYMENTS FOR
+              4 MONTHS
+            </p>
+          </div>
+        </div>
+
+        <div class="slide item" style="background-image: url(assets/image/bmw5.jpg)">
+          <div class="slide-content">
+            <h2>RIDE AWAY WITH EXCEPTIONAL OFFERS TODAY</h2>
+            <p>
+              GET 0% APR FINANCING + $3,000 CUSTOMER CASH ON 2022 R 18 B AND
+              R 18 TRANSCONTINENTAL MODELS
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
+
 
   <script src="assets/js/index.js" type="module"></script>
 </body>

@@ -1,0 +1,106 @@
+@use "skin" as *;
+@use "variables" as *;
+@use "mixins-media" as *;
+
+.header {
+  &-container {
+    display: flex;
+    margin: 20px 50px;
+  }
+
+  img {
+    width: 200px;
+  }
+  &-navbar {
+    display: flex;
+    justify-content: end;
+    flex-grow: 1;
+  }
+
+  &-navbar__list {
+    list-style: none;
+    display: flex;
+     
+    gap: 40px; 
+    
+    @include md {
+      display: none;
+    }
+    
+  }
+
+  &-navbar__link {
+    text-decoration: none;
+    color: black;
+    font-weight: 700;
+    font-size: 1.1rem;
+  }
+
+  &-navbar__link:hover,
+  &-navbar__link:focus {
+    color: #1087f5;
+  }
+
+  &-navbar__btn {
+    width: 30px;
+    position: relative;
+    margin: $gap 0;
+    transform: rotate(0deg);
+    transition: 0.5s ease-in-out;
+    cursor: pointer;
+
+    &-row {
+      display: block;
+      position: absolute;
+      height: 4px;
+      width: 100%;
+      background: black;
+      border-radius: 3px;
+      opacity: 1;
+      left: 0;
+      transform: rotate(0deg);
+      transition: 0.25s ease-in-out;
+
+      &:nth-child(1) {
+        top: 0px;
+      }
+
+      &:nth-child(2),
+      &:nth-child(3) {
+        top: 9px;
+      }
+
+      &:nth-child(4) {
+        top: 18px;
+      }
+    }
+
+    &--active span {
+      &:nth-child(1) {
+        top: 18px;
+        width: 0%;
+        left: 50%;
+      }
+
+      &:nth-child(2) {
+        transform: rotate(45deg);
+      }
+
+      &:nth-child(3) {
+        transform: rotate(-45deg);
+      }
+
+      &:nth-child(4) {
+        top: 18px;
+        width: 0%;
+        left: 50%;
+      }
+    }
+
+    @include md-min {
+      display: none; 
+    }
+  }
+ 
+}
+

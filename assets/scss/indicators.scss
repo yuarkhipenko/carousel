@@ -1,26 +1,26 @@
 @use "skin" as *;
 
 .indicators {
-  
   position: absolute;
+  top: 100%;
   left: 50%;
   transform: translate(-50%);
   display: flex;
-  justify-content: center;
-  padding: 1em;
-  bottom: 0;
+  margin-top: 30px;
+
   gap: 0.5em;
 }
 
 .indicator {
-  background-color: rgba($color-light, 0.2);
-  min-width: 100px;
+  width: 20px;
+  height: 20px;
   padding: 0.3em;
-  border-radius: 0.5em;
+  border: 3px solid black;
+  border-radius: 50%;
   cursor: pointer;
-  
 }
 
 .indicator.active {
-  background-color: $color-light;
+  background-color: #1087f5;
+  border: 3px solid #1087f5;
 }

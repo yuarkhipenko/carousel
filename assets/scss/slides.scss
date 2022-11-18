@@ -1,14 +1,19 @@
+@use "skin" as *;
 @use "variables" as *;
+@use "mixins-media" as *;
 
 * {
   box-sizing: border-box;
-} 
- 
-.slides {
-  position: relative;
+}
+
+body {
+  margin: 0;
+  font-family: $font-main;
+}
+.carousel {
   width: 100%;
-  height: 100vh;
-  
+  height: 75vh;
+  position: relative;
 }
 
 .slide {
@@ -18,13 +23,43 @@
   width: 100%;
   height: 100%;
   opacity: 0;
-  z-index: -999;
+  z-index: -1;
   transition: opacity 1s;
-  background-position: 50% 50%;
+  background-position: center;
   background-size: cover;
+  overflow: hidden;
 }
 
 .active {
   opacity: 1;
   z-index: 0;
+}
+
+.slide-content {
+  padding: 0px 50px;
+  width: 400px;
+  color: $color-light;
+
+  font-size: 2rem;
+  font-weight: 500;
+
+  @include md {
+    font-size: 1.3em;
+  }
+
+  @include  sm {
+     
+    font-size: 1rem;
+    padding: 0px 20px;
+  }
+
+  p {
+    font-size: 1.5rem;
+    font-weight: 700;
+
+    @include md {
+      font-size: 1.1rem;
+      width: 300px;
+    }
+  }
 }
