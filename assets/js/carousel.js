@@ -1,15 +1,15 @@
 class Carousel {
   constructor() {
 
-    const settings = { ...{ containerID: '#carousel',slideID: '.item', interval: 2000, isPlaying: true }};
+    const settings = { ...{ containerID: '#carousel', slideID: '.item', interval: 2000, isPlaying: true } };
 
     this.container = document.querySelector(settings.containerID);
     this.slideItems = this.container.querySelectorAll(settings.slideID);
     this.interval = settings.interval;
     this.isPlayng = settings.isPlaying;
-    
+
   }
-  
+
   _initProps() {
     this.currentSlide = 0;
 
@@ -26,7 +26,7 @@ class Carousel {
 
   _initControls() {
     const controls = document.createElement('div');
-    const PAUSE = `<div class="control control-pause" id="btn-pause">${this.isPlayng ? this.FA_PAUSE : this.FA_PLAY }</div>`;
+    const PAUSE = `<div class="control control-pause" id="btn-pause">${this.isPlayng ? this.FA_PAUSE : this.FA_PLAY}</div>`;
     const PREV = `<div class="control control-prev" id="btn-prev">${this.FA_PREV}</div>`;
     const NEXT = `<div class="control control-next" id="btn-next">${this.FA_NEXT}</div>`;
 
@@ -52,12 +52,9 @@ class Carousel {
 
     }
 
-
-
     indicators.setAttribute('class', 'indicators');
 
     this.container.append(indicators);
-
 
     this.indicatorsContainer = this.container.querySelector('.indicators');
     this.indicators = this.indicatorsContainer.querySelectorAll('.indicator');
@@ -70,7 +67,6 @@ class Carousel {
     this.indicatorsContainer.addEventListener('click', this._indicate.bind(this));
 
     document.addEventListener('keydown', this._presskey.bind(this));
-
   }
 
   _gotoNth(n) {
@@ -86,10 +82,8 @@ class Carousel {
     this._gotoNth(this.currentSlide - 1);
   }
 
-
   _gotoNext() {
     this._gotoNth(this.currentSlide + 1);
-
   }
 
   _indicate(e) {
@@ -104,16 +98,12 @@ class Carousel {
     if (e.code === this.CODE_LEFT_ARROW) this.prev();
     if (e.code === this.CODE_RIGHT_ARROW) this.next();
     if (e.code === this.CODE_SPACE) this.pausePlay();
-
   }
 
   _tick(flag = true) {
-    if(!flag) return
-    this.timerID = setInterval(() => this._gotoNext(this), this.interval); 
+    if (!flag) return
+    this.timerID = setInterval(() => this._gotoNext(this), this.interval);
   }
-
- 
-
 
   pause() {
     this.pauseBtn.innerHTML = this.FA_PLAY;
@@ -140,6 +130,7 @@ class Carousel {
     this._gotoNext();
     this.pause();
   }
+
   init() {
     this._initProps();
     this._initControls();

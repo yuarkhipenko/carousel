@@ -37,18 +37,16 @@ body {
 
 .slide-content {
   padding: 0px 50px;
-  width: 400px;
+  width: 350px;
   color: $color-light;
-
   font-size: 2rem;
   font-weight: 500;
-
+  
   @include md {
     font-size: 1.3em;
   }
 
-  @include  sm {
-     
+  @include sm {
     font-size: 1rem;
     padding: 0px 20px;
   }
