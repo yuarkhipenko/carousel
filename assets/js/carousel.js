@@ -1,7 +1,6 @@
 class Carousel {
   constructor() {
-
-    const settings = { ...{ containerID: '#carousel', slideID: '.item', interval: 2000, isPlaying: true } };
+    const settings = { ...{ containerID: '#carousel', slideID: '.slide', interval: 2000, isPlaying: true }};
 
     this.container = document.querySelector(settings.containerID);
     this.slideItems = this.container.querySelectorAll(settings.slideID);
@@ -65,7 +64,6 @@ class Carousel {
     this.prevBtn.addEventListener('click', this.prev.bind(this));
     this.nextBtn.addEventListener('click', this.next.bind(this));
     this.indicatorsContainer.addEventListener('click', this._indicate.bind(this));
-
     document.addEventListener('keydown', this._presskey.bind(this));
   }
 

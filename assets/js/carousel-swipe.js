@@ -2,6 +2,7 @@ import Carousel from "./carousel.js";
 class SwipeCorousel extends Carousel {
   constructor(...args) {
     super(...args);
+    
     this.slidesContainer = this.slideItems[0].parentElement;
   }
 
@@ -12,17 +13,18 @@ class SwipeCorousel extends Carousel {
     this.container.addEventListener('touchend', this._swipeEnd.bind(this));
     this.slidesContainer.addEventListener('mouseup', this._swipeEnd.bind(this));
   }
+  
 
   _swipeStart(e) {
-
     if (e instanceof MouseEvent) {
       this.startPosX = e.pageX;
-
+            
       return;
     }
 
     if (e instanceof TouchEvent) {
       this.startPosX = e.changedTouches[0].pageX;
+      
     }
   }
 
