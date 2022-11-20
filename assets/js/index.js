@@ -1,12 +1,8 @@
-import SwipeCorousel from './carousel-swipe.js'
+import SwipeCorousel from "./carousel-swipe.js";
 
 const slider = new SwipeCorousel({
-  containerID: 'carousel',
-  slideID: '.slide',
+  containerID: "#carousel",
   interval: 2000,
-  isPlaying: false
 });
 
 slider.init();
-
- 
