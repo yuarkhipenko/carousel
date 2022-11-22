@@ -1,26 +1,22 @@
 class Carousel {
-  constructor() {
-    const settings = { ...{ containerID: '#carousel', slideID: '.slide', interval: 2000, isPlaying: true }};
-
+  constructor(p) {
+    const settings = { ...{ containerID: '#carousel', slideID: '.slide', interval: 5000, isPlaying: true }, ...p }
     this.container = document.querySelector(settings.containerID);
-    this.slideItems = this.container.querySelectorAll(settings.slideID);
+    this.slides = this.container.querySelectorAll(settings.slideID);
     this.interval = settings.interval;
     this.isPlayng = settings.isPlaying;
-
   }
 
   _initProps() {
-    this.currentSlide = 0;
-
-    this.SLIDS_COUNT = this.slideItems.length;
+    this.SLIDES_COUNT = this.slides.length;
     this.CODE_LEFT_ARROW = 'ArrowLeft';
-    this.CODE_RIGHT_ARROW = 'ArrowRight';
+    this.CODE_RIGTH_ARROW = 'ArrowRight';
     this.CODE_SPACE = 'Space';
-    this.FA_PAUSE = '<i class="fas fa-pause-circle"></i>';
-    this.FA_PLAY = '<i class="fas fa-play-circle"></i>';
+    this.FA_PAUSE = '<i class="fas fa-circle-pause"></i>';
+    this.FA_PLAY = '<i class="fas fa-circle-play"></i>';
     this.FA_PREV = '<i class="fas fa-angle-left"></i>';
     this.FA_NEXT = '<i class="fas fa-angle-right"></i>';
-
+    this.currentSlide = 0;
   }
 
   _initControls() {
@@ -31,7 +27,6 @@ class Carousel {
 
     controls.setAttribute('class', 'controls');
     controls.innerHTML = PAUSE + PREV + NEXT;
-
     this.container.append(controls);
 
     this.pauseBtn = this.container.querySelector('#btn-pause');
@@ -41,43 +36,29 @@ class Carousel {
 
   _initIndicators() {
     const indicators = document.createElement('div');
-
-    for (let i = 0; i < this.SLIDS_COUNT; i++) {
+    for (let i = 0; i < this.SLIDES_COUNT; i++) {
       const indicator = document.createElement('div');
-
       indicator.setAttribute('class', i !== 0 ? 'indicator' : 'indicator active');
       indicator.dataset.slideTo = `${i}`;
       indicators.append(indicator);
-
     }
 
     indicators.setAttribute('class', 'indicators');
-
-    this.container.append(indicators);
-
+    this.container.append(indicators)
     this.indicatorsContainer = this.container.querySelector('.indicators');
     this.indicators = this.indicatorsContainer.querySelectorAll('.indicator');
   }
 
-  _initListener() {
-    this.pauseBtn.addEventListener('click', this.pausePlay.bind(this));
-    this.prevBtn.addEventListener('click', this.prev.bind(this));
-    this.nextBtn.addEventListener('click', this.next.bind(this));
-    this.indicatorsContainer.addEventListener('click', this._indicate.bind(this));
-    document.addEventListener('keydown', this._presskey.bind(this));
-  }
-
   _gotoNth(n) {
-    this.slideItems[this.currentSlide].classList.toggle('active');
+    this.slides[this.currentSlide].classList.toggle('active');
     this.indicators[this.currentSlide].classList.toggle('active');
-    this.currentSlide = (n + this.SLIDS_COUNT) % this.SLIDS_COUNT;
+    this.currentSlide = (n + this.slides.length) % this.SLIDES_COUNT;
     this.indicators[this.currentSlide].classList.toggle('active');
-    this.slideItems[this.currentSlide].classList.toggle('active');
-
+    this.slides[this.currentSlide].classList.toggle('active');
   }
 
   _gotoPrev() {
-    this._gotoNth(this.currentSlide - 1);
+    this._gotoNth(this.currentSlide - 1)
   }
 
   _gotoNext() {
@@ -92,15 +73,23 @@ class Carousel {
     }
   }
 
-  _presskey(e) {
+  _pressKey(e) {
     if (e.code === this.CODE_LEFT_ARROW) this.prev();
-    if (e.code === this.CODE_RIGHT_ARROW) this.next();
+    if (e.code === this.CODE_RIGTH_ARROW) this.next();
     if (e.code === this.CODE_SPACE) this.pausePlay();
   }
 
   _tick(flag = true) {
-    if (!flag) return
-    this.timerID = setInterval(() => this._gotoNext(this), this.interval);
+    if (!flag) return;
+    this.timerID = setInterval(() => this._gotoNext(), this.interval);
+  }
+
+  _initListeners() {
+    this.pauseBtn.addEventListener('click', this.pausePlay.bind(this));
+    this.prevBtn.addEventListener('click', this.prev.bind(this));
+    this.nextBtn.addEventListener('click', this.next.bind(this));
+    this.indicatorsContainer.addEventListener('click', this._indicate.bind(this));
+    document.addEventListener('keydown', this._pressKey.bind(this));
   }
 
   pause() {
@@ -108,11 +97,11 @@ class Carousel {
     this.isPlayng = false;
     clearInterval(this.timerID);
   }
-
+  
   play() {
     this.pauseBtn.innerHTML = this.FA_PAUSE;
     this.isPlayng = true;
-    this._tick();
+    this._tick()
   }
 
   pausePlay() {
@@ -133,12 +122,9 @@ class Carousel {
     this._initProps();
     this._initControls();
     this._initIndicators();
-    this._initListener();
+    this._initListeners();
     this._tick(this.isPlayng);
   }
-
 }
 
-export default Carousel;
-
-
+export default Carousel 

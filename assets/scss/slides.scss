@@ -36,19 +36,16 @@ body {
 }
 
 .slide-content {
+  position: absolute;
   padding: 0px 50px;
-  width: 350px;
+  width: 550px;
   color: $color-light;
   font-size: 2rem;
-  font-weight: 500;
-  
-  @include md {
-    font-size: 1.3em;
-  }
+  font-weight: 700;
+  user-select: none;
 
-  @include sm {
-    font-size: 1rem;
-    padding: 0px 20px;
+  @include md {
+    font-size: 1.5em;
   }
 
   p {
@@ -56,8 +53,39 @@ body {
     font-weight: 700;
 
     @include md {
-      font-size: 1.1rem;
+      font-size: 1rem;
       width: 300px;
+    }
+  }
+}
+
+.slide__btn {
+  position: absolute;
+  top: 80%;
+  height: 50px;
+  margin-left: 50px;
+
+  &--link {
+    width: 200px;
+    height: 100%;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #000;
+    font-weight: 700;
+    background-color: white;
+
+    @include md {
+       
+      width: 150px;
+      font-size: 0.8rem;
+    }
+
+    &:hover,
+    &:focus {
+      color: white;
+      background-color: #1087f5;
     }
   }
 }

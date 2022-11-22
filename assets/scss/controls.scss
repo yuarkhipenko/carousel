@@ -1,14 +1,6 @@
 @use "skin" as *;
 @use "variables" as *;
 
-.controls {
-  position: absolute;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  
-}
-
 .control {
   position: absolute;
   font-size: 3rem;
@@ -16,7 +8,6 @@
   user-select: none;
   color: rgba($color-light, 0.2);
   transition: 0.5s;
-   
 
   &:hover,
   &:focus {
