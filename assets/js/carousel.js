@@ -97,7 +97,7 @@ class Carousel {
     this.isPlayng = false;
     clearInterval(this.timerID);
   }
-  
+
   play() {
     this.pauseBtn.innerHTML = this.FA_PAUSE;
     this.isPlayng = true;
