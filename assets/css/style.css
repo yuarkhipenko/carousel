@@ -322,7 +322,7 @@ body {
   position: absolute;
 
   width: 550px;
-  padding: 0 50px;
+  margin: 0 50px;
 
   -webkit-user-select: none;
      -moz-user-select: none;
@@ -335,7 +335,7 @@ body {
   font-weight: 700;
 }
 .slide-content p {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: 700;
 }
 
@@ -344,7 +344,7 @@ body {
   top: 80%;
 
   height: 50px;
-  margin-left: 50px;
+  margin: 0 50px;
 }
 .slide__btn--link {
   display: -webkit-box;
@@ -471,13 +471,22 @@ body {
   .header-navbar__list {
     display: none;
   }
+  .slide {
+    background-position: 80% 50%;
+  }
   .slide-content {
-    font-size: 1.5em;
+    width: 300px;
+    margin: 0 20px;
+
+    font-size: 1.2em;
   }
   .slide-content p {
     width: 300px;
 
     font-size: 1rem;
+  }
+  .slide__btn {
+    margin: 0 20px;
   }
   .slide__btn--link {
     width: 150px;

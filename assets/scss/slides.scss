@@ -28,6 +28,11 @@ body {
   background-position: center;
   background-size: cover;
   overflow: hidden;
+
+  @include md {
+    background-position: 80% 50%;
+      
+  }
 }
 
 .active {
@@ -37,7 +42,7 @@ body {
 
 .slide-content {
   position: absolute;
-  padding: 0px 50px;
+  margin: 0px 50px;
   width: 550px;
   color: $color-light;
   font-size: 2rem;
@@ -45,16 +50,19 @@ body {
   user-select: none;
 
   @include md {
-    font-size: 1.5em;
+    width: 300px;
+    font-size: 1.2em;
+    margin: 0px 20px;
   }
 
   p {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-weight: 700;
 
     @include md {
       font-size: 1rem;
       width: 300px;
+       
     }
   }
 }
@@ -63,8 +71,11 @@ body {
   position: absolute;
   top: 80%;
   height: 50px;
-  margin-left: 50px;
+  margin: 0px 50px;
 
+  @include md {
+    margin: 0px 20px; 
+  }
   &--link {
     width: 200px;
     height: 100%;
@@ -79,6 +90,7 @@ body {
     @include md {
       width: 150px;
       font-size: 0.8rem;
+        
     }
 
     &:hover,
